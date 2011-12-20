@@ -106,7 +106,6 @@ class views_plugin_pager_full extends views_plugin_pager {
       ),
     );
 
-
     $form['expose']['items_per_page_options_all'] = array(
       '#type' => 'checkbox',
       '#title' => t('Include all items option'),

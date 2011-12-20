@@ -6,25 +6,42 @@ function magazineInit(){
 function toggleComicNav() {
 	$('#comic-nav').animate(
 		{
-			width: ['toggle', 'swing'],
-			height: ['toggle', 'swing']
+			height: ['toggle', 'easeOutBounce'], 
+			paddingBottom: 10
 		}, 
-		1000,
+		200,
 		function() {
 		}
 	);
 }
 
 function buildNav(offset){
-console.log('here');
+	if(!offset){
+		var offset = 0;
+	}
+	var nextPage = parseInt(offset) + 1;
+	var prevPage = parseInt(offset) + 1;
+	var nid;
 	$.ajax({
-		url:'?q=comics/' + offset,
+		url:'?q=comics/&page=' + offset,
 		success: function(data) {
 			$('#comic-nav').html(data);
+			$('#comic-nav-elems>li').each(function(i){
+				nid = $(this).find('.nid').text();
+				$(this).find('img').bind("click", function(){
+					buildMag("'" + nid + "'");
+				});
+			});
 			toggleComicNav();
+			$('.pager-previous>a').bind('click', function(){
+				buildNav("'" + prevPage + "'");
+			});
+			$('.pager-next>a').bind('click', function(){
+				buildNav("'" + nextPage + "'");
+			});
 		}
 	})
-	$('#comic-nav-handle').click(toggleComicNav);
+	$('#comic-nav-handle').hover(toggleComicNav);
 }
 
 function buildMag(id){
@@ -35,25 +52,7 @@ function buildMag(id){
 		var image;
 		data.title;
 		data.totalpages;
-		/*
-		var newChapter;
-		$.each(data.chapters, function(key, chapter) {
-				newChapter = 1;
-				$.each(chapter.pages, function(i, page){
-					pageDiv = document.createElement('div');
-					if(newChapter == 1){
-						pageDiv.setAttribute('rel', chapter.title);
-						newChapter = 0;
-					}
-					pageId = key + '-' + i;
-					pageDiv.setAttribute('title', page.body);
-					pageDiv.id = pageId;
-					image = document.createElement('img');
-					image.setAttribute('src', page.field_page);
-					$('.b-load').append(pageDiv);
-					$('#' + pageId).append(image);
-				});
-		});*/
+
 		$.each(data, function(key, chapter) {
 				pageDiv = document.createElement('div');
 				pageId = key;

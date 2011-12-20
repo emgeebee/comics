@@ -98,19 +98,40 @@ body,
   width: 940px;
   min-width: 920px;
 }
-.pager1 li.pager-next, .pager1 li.pager-current, .pager2 li.pager-previous, .pager2 li.pager-current, nav-comic .nid{
-	display: none;
+#comic-nav.b-selector .pager li{
+	height: 25px;
 }
-#comic-nav{
-	left: 10px;
-	top: 30px;
-	position: absolute;
-	width: 400px;
+#nav-comic .nid{
+	display: none;
+	height: 0;
 }
 #comic-nav-handle{
-	background-color: #666666;
-	height: 100%;
-	width: 40px;
-	height: 40px;
-	margin: 0 10px;
+	float: left;
+}
+#comic-nav.b-selector li{
+	height: 100px;
+	display: block;
+}
+#comic-nav.b-selector ul{
+	position: static;
+	top: 0;
+	height: 25px;
+}
+#comic-nav.b-selector .pager li{
+	width: 56px;
+	height: 25px;
+	float: left;
+}
+#comic-nav.b-selector li.pager{
+	height: 25px;
+	overflow: hide;
+}
+.b-selector a:link,
+.b-selector a:link:visited,
+.b-selector a:link:active {
+	color: white!important;
+	padding: 0;
+}
+#comic-nav{
+	height: 330px;
 }

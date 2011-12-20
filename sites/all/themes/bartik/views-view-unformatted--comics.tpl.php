@@ -1,7 +1,7 @@
 <?php
 	foreach ($rows as $id => $row){
-		print('<div class="nav-comic">');
+		print('<li>');
 			print($row);
-		print('</div>');
+		print('</li>');
 	}
 ?>

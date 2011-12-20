@@ -57,14 +57,15 @@
 
 		<div id="main-wrapper" class="clearfix">
 			<div id="sidebar-first" class="column sidebar">
-				<div id="comic-nav-handle">
-					A-C
-				</div>
-				<div id="comic-nav" >
-				</div>
+
 			</div> <!-- /.section, /#sidebar-first -->
 			<div id="main" class="clearfix">
 				<div id="custom-menu" class="b-menu">
+					<div id="comic-nav-handle" class="b-selector b-comics">
+						<span id="comic-nav-handle" class="b-current">More A-Tomic Comics</span>
+						<ul id="comic-nav" class="b-selector b-selector-page">
+						</ul>
+					</div>
 				</div>
 				<div id="magazine" class="column">
 					<div class='b-load'>

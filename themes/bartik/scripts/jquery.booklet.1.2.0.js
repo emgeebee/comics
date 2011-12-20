@@ -178,7 +178,7 @@ function booklet(target, options, id){
 		//setup page selctor
 		if(opts.pageSelector){
 			//add selector
-			dd = $('<div class="b-selector b-selector-page"><span class="b-current">'+ (p+1) +' - '+ (p+2) +'</span></div>').appendTo(menu);
+			dd = $('<div class="b-selector b-selector-page"><span class="b-current">Current page: ' + + (p+1) +' - '+ (p+2) +'</span></div>').appendTo(menu);
 			ddUL = $('<ul></ul>').appendTo(dd).empty().css('height','auto');
 
 			//loop through all pages
@@ -238,10 +238,8 @@ function booklet(target, options, id){
 			
 			//add hover effects
 			dd.unbind('hover').hover(function(){
-				ddUL.stop().animate({height:ddH, paddingBottom:10}, 500);
-			},function(){
-				ddUL.stop().animate({height:0, paddingBottom:0}, 500);
-			});
+				ddUL.stop().animate({height: ['toggle', 'easeBounceOut'], paddingBottom:10}, 500);
+			}
 		}
 		
 		//setup chapter selctor
@@ -1087,7 +1085,7 @@ function booklet(target, options, id){
 						else{nums = (Math.abs(opts.curr - opts.pTotal)-3) +' - '+ ((Math.abs(opts.curr - opts.pTotal)-2));}
 					}
 				}
-				$(opts.menu+' .b-selector-page .b-current').text(nums);
+				$(opts.menu+' .b-selector-page .b-current').text('Current page: ' + nums);
 			}else{
 				nums = (opts.curr+1) +' - '+ (opts.curr+2);
 				if(opts.closed){
@@ -1101,7 +1099,7 @@ function booklet(target, options, id){
 						else {nums = (opts.curr-1) +'-'+ (opts.curr);}
 					}
 				}
-				$(opts.menu+' .b-selector-page .b-current').text(nums);
+				$(opts.menu+' .b-selector-page .b-current').text('Current page: ' + nums);
 			}
 		}
 		if(opts.chapterSelector){

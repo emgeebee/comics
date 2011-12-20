@@ -1,7 +1,7 @@
 <?php
 	foreach ($fields as $id => $field){
-		print('<div class="' . $id . '">');
+		print('<span class="' . $id . '">');
 			print($field->content);
-		print('</div>');
+		print('</span>');
 	}
 ?>
