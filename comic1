@@ -1,0 +1,34 @@
+{
+	"title":"test1",
+	"totalpages":2,
+	"chapters":[
+		{
+			"title":"Chapter1",
+			"pages":[
+				{
+					"title":"comic 2",
+					"image":"http://localhost/~matrulesok2/emgeebee/comics/sites/default/files/cleandog.jpg",
+					"body":"this is the second comic",
+					"nid":"2"
+				},
+				{
+					"title":"page 2",
+					"image":"http://localhost/~matrulesok2/emgeebee/comics/sites/default/files/cleandog.jpg",
+					"body":"this is the second comic",
+					"nid":"2"
+				}
+			]
+		},
+		{
+			"title":"Chapter2",
+			"pages":[
+				{
+					"title":"Comic 1",
+					"image":"http://localhost/~matrulesok2/emgeebee/comics/sites/default/files/P1010977.JPG",
+					"body":"This is the first comic",
+					"nid":"1"
+				}
+			]
+		}
+	]
+}
