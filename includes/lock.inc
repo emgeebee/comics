@@ -168,18 +168,28 @@ function lock_may_be_available($name) {
   if (!$lock) {
     return TRUE;
   }
+print('here');
+print_r($lock);
   $expire = (float) $lock['expire'];
   $now = microtime(TRUE);
   if ($now > $expire) {
     // We check two conditions to prevent a race condition where another
     // request acquired the lock and set a new expire time. We add a small
     // number to $expire to avoid errors with float to string conversion.
-    return (bool) db_delete('semaphore')
+    $result = (bool) db_delete('semaphore')
       ->condition('name', $name)
       ->condition('value', $lock['value'])
       ->condition('expire', 0.0001 + $expire, '<=')
       ->execute();
   }
+    //if delete was successful, unsent the lock from global $locks array. 
+    if ($result) {
+      global $locks;
+      unset($locks[$name]);
+    }
+    return $result;
+
+
   return FALSE;
 }
 
