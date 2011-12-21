@@ -33,11 +33,16 @@ function buildNav(offset){
 				});
 			});
 			toggleComicNav();
+			$.each($('.pager>*>a'), function(i, value) {
+					$(this)[i].setAttribute('href', '#');
+			});
 			$('.pager-previous>a').bind('click', function(){
-				buildNav("'" + prevPage + "'");
+				toggleComicNav();
+				buildNav(prevPage);
 			});
 			$('.pager-next>a').bind('click', function(){
-				buildNav("'" + nextPage + "'");
+				toggleComicNav();
+				buildNav(nextPage);
 			});
 		}
 	})
