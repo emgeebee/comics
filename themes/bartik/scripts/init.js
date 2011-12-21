@@ -1,21 +1,38 @@
+var initCounter = 0;
+var initSuccess = 0;
 function magazineInit(){
 	buildMag('1');
-	buildNav();
+	buildNav(0, 0);
+	animateNav();
 }
 
-function toggleComicNav() {
-	$('#comic-nav').animate(
-		{
-			height: ['toggle', 'easeOutBounce'], 
-			paddingBottom: 10
-		}, 
-		200,
-		function() {
-		}
-	);
+function animateNav(){
+	if(initCounter < 50 && initSuccess < 2){
+		initCounter++;
+		setTimeout('animateNav()', 50);
+		return;
+	}
+	$('#custom-menu>div').each(function(){
+		$(this).bind('hover', '');
+		$(this).bind('click', function(){
+			$(this).find('ul').animate(
+				{
+					height: ['toggle', 'easeOutBounce'], 
+					paddingBottom: 10
+				}, 
+				1000,
+				function() {
+				}
+			)
+		})
+	});
+	$('#custom-menu>div').each(function(){
+		$(this).click();
+	})
+
 }
 
-function buildNav(offset){
+function buildNav(offset, click){
 	if(!offset){
 		var offset = 0;
 	}
@@ -25,6 +42,7 @@ function buildNav(offset){
 	$.ajax({
 		url:'?q=comics/&page=' + offset,
 		success: function(data) {
+			initSuccess++;
 			$('#comic-nav').html(data);
 			$('#comic-nav-elems>li').each(function(i){
 				nid = $(this).find('.nid').text();
@@ -32,25 +50,22 @@ function buildNav(offset){
 					buildMag("'" + nid + "'");
 				});
 			});
-			toggleComicNav();
 			$.each($('.pager>*>a'), function(i, value) {
 					$(this)[i].setAttribute('href', '#');
 			});
 			$('.pager-previous>a').bind('click', function(){
-				toggleComicNav();
-				buildNav(prevPage);
+				buildNav(prevPage, 1);
 			});
 			$('.pager-next>a').bind('click', function(){
-				toggleComicNav();
-				buildNav(nextPage);
+				buildNav(nextPage, 1);
 			});
 		}
 	})
-	$('#comic-nav-handle').hover(toggleComicNav);
 }
 
 function buildMag(id){
 	$.getJSON('?q=comic-contents/' + id, function(data) {
+		initSuccess++;
 		var items = [];
 		var pageDiv;
 		var pageId;
@@ -70,8 +85,8 @@ function buildMag(id){
 		});
 		
 		$('#magazine').booklet({
-			width:    1024,
-			height:   768,
+			width:    824,
+			height:   618,
 			menu: '#custom-menu',
 			pagePadding: 0,
 			manual: false,

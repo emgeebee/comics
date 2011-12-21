@@ -1,5 +1,8 @@
 
 /* ---------- Overall Specifications ---------- */
+html{
+	background-color: #000000;
+}
 
 body {
   line-height: 1.5;
@@ -108,7 +111,6 @@ body,
 .comment-form label {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
-#header,
 #footer-wrapper,
 #skip-link,
 ul.contextual-links,
@@ -261,13 +263,20 @@ ul.tips {
 
 /* ------------------ Header ------------------ */
 #header, #footer-wrapper{
-	background-color:#666666;
+	background-color:Goldenrod;
+	margin: 10px auto 5px;
+	width: 1104px;
+	border-radius: 10px;
+}
+#footer-wrapper{
+	margin-top: 5px;
 }
 #main-wrapper{
 	background-color:#000000;
 }
 #main{
 	background-color:#ffffff;
+	border-radius: 10px;
 }
 
 #skip-link {
@@ -533,8 +542,9 @@ h1#site-name {
 /* ------------------- Main ------------------- */
 
 #main {
-  margin-top: 20px;
-  margin-bottom: 40px;
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 678px;
 }
 
 /* ----------------- Featured ----------------- */

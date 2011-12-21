@@ -107,6 +107,7 @@ body,
 }
 #comic-nav-handle{
 	float: left;
+	margin-left: 7px;
 }
 #comic-nav.b-selector li{
 	height: 100px;
@@ -132,6 +133,10 @@ body,
 	color: white!important;
 	padding: 0;
 }
-#comic-nav{
-	height: 330px;
+#custom-menu span:hover {
+	transition: height 1s;
+	-moz-transition: height 1s; /* Firefox 4 */
+	-webkit-transition: height 1s; /* Safari and Chrome */
+	-o-transition: height 1s; /* Opera */
 }
+#custom-menu span:hover {height:30px;}

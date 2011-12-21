@@ -234,12 +234,7 @@ function booklet(target, options, id){
 			
 			//set height
 			ddH = ddUL.height();
-			ddUL.css({'height':0, 'padding-bottom':0});
 			
-			//add hover effects
-			dd.unbind('hover').hover(function(){
-				ddUL.stop().animate({height: ['toggle', 'easeBounceOut'], paddingBottom:10}, 500);
-			}
 		}
 		
 		//setup chapter selctor
@@ -274,13 +269,6 @@ function booklet(target, options, id){
 			}
 			
 			ddCH = ddCUL.height();
-			ddCUL.css({'height':0, 'padding-bottom':0});
-			
-			ddC.unbind('hover').hover(function(){
-				ddCUL.stop().animate({height:ddCH, paddingBottom:10}, 500);
-			},function(){
-				ddCUL.stop().animate({height:0, paddingBottom:0}, 500);
-			});
 		}
 	}	
 

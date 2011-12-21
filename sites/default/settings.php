@@ -5,10 +5,10 @@ $databases = array (
   array (
     'default' => 
     array (
-      'database' => 'a_tomics',
-      'username' => 'emgeebee',
-      'password' => '0mg00b00',
-      'host' => 'mysql.bishops-wood.com',
+      'database' => 'comics',
+      'username' => 'root',
+      'password' => '',
+      'host' => 'localhost',
       'port' => '',
       'driver' => 'mysql',
       'prefix' => '',
