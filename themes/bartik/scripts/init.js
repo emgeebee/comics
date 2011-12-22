@@ -3,51 +3,61 @@ var initSuccess = 0;
 function magazineInit(){
 	buildMag('1');
 	buildNav(0, 0);
-	animateNav();
+	initNav();
+	$('#comic-nav').jSlickmenu();
 }
 
-function animateNav(){
+function initNavUL(div, time){
+	div.parent().find('ul').animate(
+		{
+			height: ['toggle', 'easeOutBounce'], 
+			paddingBottom: 10
+		}, 
+		time,
+		function() {
+		}
+	)
+}
+
+function initNavElement(elem){
+	elem.bind('hover', '');
+	elem.bind('click',
+		function(){
+			initNavUL(elem, 1000);
+		}
+	);
+}
+
+function initNav(){
 	if(initCounter < 50 && initSuccess < 2){
 		initCounter++;
-		setTimeout('animateNav()', 50);
+		setTimeout('initNav()', 50);
 		return;
 	}
-	$('#custom-menu>div').each(function(){
-		$(this).bind('hover', '');
-		$(this).bind('click', function(){
-			$(this).find('ul').animate(
-				{
-					height: ['toggle', 'easeOutBounce'], 
-					paddingBottom: 10
-				}, 
-				1000,
-				function() {
-				}
-			)
-		})
-	});
-	$('#custom-menu>div').each(function(){
+	$('#custom-menu>div>span').each(function(){
+		initNavElement($(this));
+	})
+	$('#custom-menu>div>span').each(function(){
 		$(this).click();
 	})
-
 }
 
 function buildNav(offset, click){
+	$('#comic-nav>*>a').bind("click", '');
 	if(!offset){
 		var offset = 0;
 	}
 	var nextPage = parseInt(offset) + 1;
-	var prevPage = parseInt(offset) + 1;
-	var nid;
+	var prevPage = parseInt(offset) - 1;
 	$.ajax({
 		url:'?q=comics/&page=' + offset,
 		success: function(data) {
 			initSuccess++;
 			$('#comic-nav').html(data);
-			$('#comic-nav-elems>li').each(function(i){
-				nid = $(this).find('.nid').text();
+			$('#comic-nav>li').each(function(i){
 				$(this).find('img').bind("click", function(){
-					buildMag("'" + nid + "'");
+					var nid = $(this).parent().parent().find('.nid').text();
+					buildMag(nid, true);
 				});
 			});
 			$.each($('.pager>*>a'), function(i, value) {
@@ -63,7 +73,9 @@ function buildNav(offset, click){
 	})
 }
 
-function buildMag(id){
+function buildMag(id, click){
+	$('.b-selector-page').remove();
+	$('.b-load>div').remove();
 	$.getJSON('?q=comic-contents/' + id, function(data) {
 		initSuccess++;
 		var items = [];
@@ -83,7 +95,6 @@ function buildMag(id){
 				$('.b-load').append(pageDiv);
 				$('#' + pageId).append(image);
 		});
-		
 		$('#magazine').booklet({
 			width:    824,
 			height:   618,
@@ -94,8 +105,11 @@ function buildMag(id){
 			closed: true,
 	        covers: false,
 			autoCenter: true,
-			speed:3000
+			speed:1000
 		});
+		if(click){
+			initNavElement($('#custom-menu>.b-selector-page>span'));
+		}
 	});
 }
 

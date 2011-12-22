@@ -37,7 +37,9 @@ function bartik_preprocess_html(&$variables) {
   drupal_add_js(path_to_theme() . '/scripts/jquery.easing.1.3.js');
   drupal_add_js(path_to_theme() . '/scripts/jquery.booklet.1.2.0.js');
   drupal_add_js(path_to_theme() . '/scripts/init.js');
+  drupal_add_js(path_to_theme() . '/scripts/jquery.jslickmenu.js');
   drupal_add_css(path_to_theme() . '/css/jquery.booklet.1.2.0.css');
+  drupal_add_css(path_to_theme() . '/css/slickmenu.css');
 
 }
 
