@@ -55,11 +55,21 @@ function buildNav(offset, click){
 			initSuccess++;
 			$('#comic-nav').html(data);
 			$('#comic-nav>li').each(function(i){
-				$(this).find('img').bind("click", function(){
-					var nid = $(this).parent().parent().find('.nid').text();
-					buildMag(nid, true);
+				$(this).find('img').bind({
+					"click":function(){
+						var nid = $(this).parent().parent().find('.nid').text();
+						buildMag(nid, true);
+					},
+					"mouseenter":function(){
+						$(this).parent().parent().parent().addClass('fade');
+						$(this).parent().parent().addClass('selected');
+					},
+					"mouseout":function(){
+						$(this).parent().parent().parent().removeClass('fade');
+						$(this).parent().parent().removeClass('selected');
+					}
 				});
-			});
+			})
 			$.each($('.pager>*>a'), function(i, value) {
 					$(this)[i].setAttribute('href', '#');
 			});

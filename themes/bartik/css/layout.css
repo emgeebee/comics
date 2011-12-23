@@ -104,9 +104,27 @@ html{
 #comic-nav.b-selector .pager li{
 	height: 25px;
 }
-#nav-comic .nid{
+#comic-nav .nid, #comic-nav .title{
 	display: none;
 	height: 0;
+}
+#comic-nav .li1 .field_cover img{
+	-webkit-transform: rotate(352deg);
+}
+#comic-nav .li2 .field_cover img{
+	-webkit-transform: rotate(15deg);
+}
+#comic-nav .li3 .field_cover img{
+	-webkit-transform: rotate(356deg);
+}
+#comic-nav .li4 .field_cover img{
+	-webkit-transform: rotate(6deg);
+}
+#comic-nav .li5 .field_cover img{
+	-webkit-transform: rotate(358deg);
+}
+#comic-nav .li6 .field_cover img{
+	-webkit-transform: rotate(14deg);
 }
 #comic-nav-handle{
 	float: left;
@@ -144,4 +162,73 @@ html{
 }
 #custom-menu span:hover {
 	height:30px;
+}
+.field_cover{
+	display: block;
+	text-align: center;
+}
+#comic-nav img{
+	border: 3px solid #EEE;
+	border-width: 4px;
+	border-radius: 4px;
+	-webkit-box-shadow: rgb(85, 85, 85) 3px 5px 5px;
+	box-shadow: rgb(85, 85, 85) 3px 5px 5px;
+}
+#comic-nav.fade img{
+	opacity: 0.4;
+}
+#comic-nav .selected img:hover{
+	opacity: 1;
+	border-width: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: rgb(85, 85, 85) 3px 5px 5px;
+	box-shadow: rgb(85, 85, 85) 3px 5px 5px;
+	animation-name: border-grow;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	/* Firefox: */
+	-moz-animation-name: border-grow;
+	-moz-animation-duration: 0.5s;
+	-moz-animation-timing-function: linear;
+	/* Safari and Chrome: */
+	-webkit-animation-name: border-grow;
+	-webkit-animation-duration: 0.5s;
+	-webkit-animation-timing-function: linear;
+}
+@keyframes border-grow
+{
+0%   {	border-width: 3px;}
+100%  {	border-width: 10px;}
+}
+
+@-moz-keyframes border-grow /* Firefox */
+{
+0%   {	border-width: 3px;}
+100%  {	border-width: 10px;}
+}
+
+@-webkit-keyframes border-grow /* Safari and Chrome */
+{
+0%   {	border-width: 3px;}
+100%  {	border-width: 10px;}
+}
+#comic-nav .title{
+	position: relative;
+	top: 0px;
+	left: 0px;
+	width: 200px;
+	height: 100px;
+	padding-left: 100px;
+	display: none;
+	-webkit-box-shadow: rgb(85, 85, 85) 3px 5px 5px;
+	box-shadow: rgb(85, 85, 85) 3px 5px 5px;
+	-webkit-transition: display 1s ease-in-out;
+	-moz-transition: display 1s ease-in-out;
+	-o-transition: display 1s ease-in-out;
+	-ms-transition: display 1s ease-in-out;	
+	transition: display 1s ease-in-out;
+}
+
+#comic-nav .selected .display{
+	display: block;
 }

@@ -87,7 +87,6 @@ function booklet(target, options, id){
 		empty = '<div class="b-page-empty" title="" rel=""></div>', blank = '<div class="b-page-blank" title="" rel=""></div>'
 	;
 	
-	self			 = '';
 	busy         = false;
 	playing      = false;
 	init         = false;
