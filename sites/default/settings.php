@@ -1,5 +1,6 @@
 <?php
 
+/*
 $databases = array (
   'default' => 
   array (
@@ -15,7 +16,22 @@ $databases = array (
     ),
   ),
 );
-
+*/
+$databases = array (
+  'default' => 
+  array (
+    'default' => 
+    array (
+      'database' => 'comics',
+      'username' => 'root',
+      'password' => '',
+      'host' => 'localhost',
+      'port' => '',
+      'driver' => 'mysql',
+      'prefix' => '',
+    ),
+  ),
+);
 /**
  * Access control for update.php script.
  *
