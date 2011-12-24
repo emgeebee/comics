@@ -1,5 +1,8 @@
 
 /* ---------- Overall Specifications ---------- */
+html{
+	background-color: #000000;
+}
 
 body {
   line-height: 1.5;
@@ -108,7 +111,6 @@ body,
 .comment-form label {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
-#header,
 #footer-wrapper,
 #skip-link,
 ul.contextual-links,
@@ -261,13 +263,20 @@ ul.tips {
 
 /* ------------------ Header ------------------ */
 #header, #footer-wrapper{
-	background-color:#666666;
+	background-color:Goldenrod;
+	margin: 10px auto 5px;
+	width: 1104px;
+	border-radius: 10px;
+}
+#footer-wrapper{
+	margin-top: 5px;
 }
 #main-wrapper{
 	background-color:#000000;
 }
 #main{
 	background-color:#ffffff;
+	border-radius: 10px;
 }
 
 #skip-link {
@@ -312,14 +321,36 @@ ul.tips {
   margin: 0 0 30px 15px; /* LTR */
 }
 #site-name {
-  font-size: 1.821em;
+  font-size: 6em;
   color: #FFFFFF;
   line-height: 1;
 }
 h1#site-name {
+  position: absolute;
   margin: 0;
+  width: 1104px;
+  text-shadow:
+    0 1px 0px #378ab4,
+    1px 0 0px #5dabcd,
+    1px 2px 1px #378ab4,
+    2px 1px 1px #5dabcd,
+    2px 3px 2px #378ab4,
+    3px 2px 2px #5dabcd,
+    3px 4px 2px #378ab4,
+    4px 3px 3px #5dabcd,
+    4px 5px 3px #378ab4,
+    5px 4px 2px #5dabcd,
+    5px 6px 2px #378ab4,
+    6px 5px 2px #5dabcd,
+    6px 7px 1px #378ab4,
+    7px 6px 1px #5dabcd,
+    7px 8px 0px #378ab4,
+    8px 7px 0px #5dabcd;
 }
 #site-name a {
+	display: block;
+	width:360px;
+	margin:-25px auto 0;
   font-weight: normal;
   color: #FFFFFF;
 }
@@ -533,8 +564,9 @@ h1#site-name {
 /* ------------------- Main ------------------- */
 
 #main {
-  margin-top: 20px;
-  margin-bottom: 40px;
+  margin-top: 10px;
+  margin-bottom: 0;
+  height: 725px;
 }
 
 /* ----------------- Featured ----------------- */

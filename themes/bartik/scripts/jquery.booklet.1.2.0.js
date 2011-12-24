@@ -86,7 +86,7 @@ function booklet(target, options, id){
 		menu, chapter, dd, ddUL, ddH, ddLI, ddA, ddT, ddC, ddCUL, ddCH, ddCLI, ddCA, ddCT,
 		empty = '<div class="b-page-empty" title="" rel=""></div>', blank = '<div class="b-page-blank" title="" rel=""></div>'
 	;
-		
+	
 	busy         = false;
 	playing      = false;
 	init         = false;
@@ -179,7 +179,7 @@ function booklet(target, options, id){
 		if(opts.pageSelector){
 			//add selector
 			dd = $('<div class="b-selector b-selector-page"><span class="b-current">Current page: ' + + (p+1) +' - '+ (p+2) +'</span></div>').appendTo(menu);
-			ddUL = $('<ul></ul>').appendTo(dd).empty().css('height','auto');
+			ddUL = $('<ul></ul>').appendTo(dd).empty();
 
 			//loop through all pages
 			for(i=0; i < opts.pTotal; i+=2){
@@ -231,15 +231,6 @@ function booklet(target, options, id){
 					});
 				}
 			}
-			
-			//set height
-			ddH = ddUL.height();
-			ddUL.css({'height':0, 'padding-bottom':0});
-			
-			//add hover effects
-			dd.unbind('hover').hover(function(){
-				ddUL.stop().animate({height: ['toggle', 'easeBounceOut'], paddingBottom:10}, 500);
-			}
 		}
 		
 		//setup chapter selctor
@@ -249,7 +240,6 @@ function booklet(target, options, id){
 			if(chapter == ""){ chapter = chapters[opts.curr+1]; }
 			
 			ddC = $('<div class="b-selector b-selector-chapter"><span class="b-current">'+chapter+'</span></div>').appendTo(menu);
-			ddCUL = $('<ul></ul>').appendTo(ddC).empty().css('height','auto');
 
 			for(i=0; i < opts.pTotal; i+=1){
 				if(chapters[i] != "" && typeof chapters[i] != "undefined"){
@@ -272,15 +262,6 @@ function booklet(target, options, id){
 					}
 				}
 			}
-			
-			ddCH = ddCUL.height();
-			ddCUL.css({'height':0, 'padding-bottom':0});
-			
-			ddC.unbind('hover').hover(function(){
-				ddCUL.stop().animate({height:ddCH, paddingBottom:10}, 500);
-			},function(){
-				ddCUL.stop().animate({height:0, paddingBottom:0}, 500);
-			});
 		}
 	}	
 

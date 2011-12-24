@@ -68,8 +68,9 @@
 ----------------------------------------*/
 	body              {z-index:0;}
     .b-menu           {z-index:100;}
+	.b-current		  {z-index:101;}
     .b-selector       {z-index:100;}
-	.booklet          {z-index:10;}
+	.booklet          {z-index:10; margin-top: 20px;}
     .b-pN             {z-index:10;}
     .b-p0             {z-index:10;}
     .b-p1             {z-index:10;}
@@ -82,16 +83,22 @@
 	
 /* @Menu Items
 ----------------------------------------*/
-	.b-menu {height:40px; padding:0 0 10px;}
+	.b-menu {height:65px; margin:0 0 10px; background-color: Goldenrod; border-radius: 10px; padding-top: 20px}
 	
-	.b-selector             {height:40px; position:relative; float:right; border:none; color:#cecece; cursor:pointer;}
-	.b-selector .b-current  {padding:8px 15px 12px; line-height:20px; width:170px; height:20px; display:block; background:#000; text-align:center;}
-	.b-selector-page        {width:auto; margin-left:15px;}
+	.b-selector             {margin: 0 10px 0 2px; height:40px; position:relative; float:right; border:none; color:#cecece; cursor:pointer;
+  text-shadow:
+    0 1px 0px #378ab4,
+    1px 0 0px #5dabcd,
+    1px 2px 1px #378ab4,
+    2px 1px 1px #5dabcd;}
+	.b-selector .b-current  {padding:8px 15px 12px; line-height:20px; margin-top:1px; width:170px; height:17px; display:block; background:#000; text-align:center;
+	border-radius: 10px;}
+	.b-selector-page        {width:auto; }
 	.b-selector-chapter     {width:auto;}
 	
 	.b-selector:hover            {color:#fff; background-position:left 0px;}
 	.b-selector:hover .b-current {background-position:right 0px;}
-	.b-selector ul               {overflow:hidden; margin:0; list-style:none !important; position:absolute; top:40px; right:0; padding:0 0 10px; background:#000; width:200px; font:normal 12px "Myriad Pro", Myriad, "DejaVu Sans Condensed","Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;}
+	.b-selector ul               {overflow:hidden; margin:0; list-style:none !important; position:absolute; top:32px; right:0; padding:10px 5px 5px; background:#000; width:190px; font:normal 12px "Myriad Pro", Myriad, "DejaVu Sans Condensed","Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif; height: 655px;}
 	.b-selector li               {border:none;}
 	.b-selector a                {color:#cecece; height:14px; text-decoration:none; display:block; padding:5px 10px;}
 	.b-selector a .b-text        {float:left; clear:none;}

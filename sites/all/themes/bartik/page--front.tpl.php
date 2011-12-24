@@ -1,5 +1,6 @@
 <div id="page-wrapper">
 	<div id="page">
+	<!--
 		<div id="header" class="<?php print $secondary_menu ? 'with-secondary-menu': 'without-secondary-menu'; ?>">
 			<div class="section clearfix">
 				<?php if ($site_name || $site_slogan): ?>
@@ -12,12 +13,10 @@
 									</strong>
 								</div>
 							<?php else: /* Use h1 when the content title is empty */ ?>
-								<h1 id="site-name"<?php if ($hide_site_name) { print ' class="element-invisible"'; } ?>>
-									<a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
-								</h1>
+								
 							<?php endif; ?>
 						<?php endif; ?>
-					</div> <!-- /#name-and-slogan -->
+					</div>
 				<?php endif; ?>
 
 				<?php print render($page['header']); ?>
@@ -36,7 +35,7 @@
 							'class' => array('element-invisible'),
 							),
 						)); ?>
-					</div> <!-- /#main-menu -->
+					</div>
 				<?php endif; ?>
 			</div>
 		</div> <!-- /.section, /#header -->
@@ -61,9 +60,12 @@
 			</div> <!-- /.section, /#sidebar-first -->
 			<div id="main" class="clearfix">
 				<div id="custom-menu" class="b-menu">
+					<h1 id="site-name"<?php if ($hide_site_name) { print ' class="element-invisible"'; } ?>>
+						<a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
+					</h1>
 					<div id="comic-nav-handle" class="b-selector b-comics">
-						<span id="comic-nav-handle" class="b-current">More A-Tomic Comics</span>
-						<ul id="comic-nav" class="b-selector b-selector-page">
+						<span id="" class="b-current">More A-Tomic Comics</span>
+						<ul id="comic-nav" class="b-selector">
 						</ul>
 					</div>
 				</div>
