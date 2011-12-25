@@ -71,6 +71,11 @@
 				</div>
 				<div id="magazine" class="column">
 					<div class='b-load'>
+						<div>
+							<p>
+								Hi, my name is Tom Bishop. I like making comics!
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>

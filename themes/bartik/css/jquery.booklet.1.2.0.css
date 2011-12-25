@@ -98,7 +98,7 @@
 	
 	.b-selector:hover            {color:#fff; background-position:left 0px;}
 	.b-selector:hover .b-current {background-position:right 0px;}
-	.b-selector ul               {overflow:hidden; margin:0; list-style:none !important; position:absolute; top:32px; right:0; padding:10px 5px 5px; background:#000; width:190px; font:normal 12px "Myriad Pro", Myriad, "DejaVu Sans Condensed","Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif; height: 655px;}
+	.b-selector ul               {margin:0; list-style:none !important; position:absolute; top:32px; right:0; padding:10px 5px 5px; background:#000; width:190px; font:normal 12px "Myriad Pro", Myriad, "DejaVu Sans Condensed","Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif; height: 655px;}
 	.b-selector li               {border:none;}
 	.b-selector a                {color:#cecece; height:14px; text-decoration:none; display:block; padding:5px 10px;}
 	.b-selector a .b-text        {float:left; clear:none;}

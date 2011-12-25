@@ -104,7 +104,7 @@ html{
 #comic-nav.b-selector .pager li{
 	height: 25px;
 }
-#comic-nav .nid, #comic-nav .title{
+#comic-nav .nid{
 	display: none;
 	height: 0;
 }
@@ -144,6 +144,11 @@ html{
 	height: 25px;
 	float: left;
 }
+
+#comic-nav.b-selector ul.pager{
+	padding-left: 0;
+	padding-right: 0;
+}
 #comic-nav.b-selector li.pager{
 	height: 25px;
 	overflow: hide;
@@ -154,13 +159,11 @@ html{
 	color: white!important;
 	padding: 0;
 }
-#custom-menu span:hover {
+#custom-menu span.b-current:hover {
 	transition: height 1s;
 	-moz-transition: height 1s; /* Firefox 4 */
 	-webkit-transition: height 1s; /* Safari and Chrome */
 	-o-transition: height 1s; /* Opera */
-}
-#custom-menu span:hover {
 	height:30px;
 }
 .field_cover{
@@ -179,56 +182,60 @@ html{
 }
 #comic-nav .selected img:hover{
 	opacity: 1;
-	border-width: 10px;
+	border-width: 6px;
 	border-radius: 10px;
 	-webkit-box-shadow: rgb(85, 85, 85) 3px 5px 5px;
 	box-shadow: rgb(85, 85, 85) 3px 5px 5px;
 	animation-name: border-grow;
-	animation-duration: 0.5s;
+	animation-duration: 0.25s;
 	animation-timing-function: linear;
 	/* Firefox: */
 	-moz-animation-name: border-grow;
-	-moz-animation-duration: 0.5s;
+	-moz-animation-duration: 0.25s;
 	-moz-animation-timing-function: linear;
 	/* Safari and Chrome: */
 	-webkit-animation-name: border-grow;
-	-webkit-animation-duration: 0.5s;
+	-webkit-animation-duration: 0.25s;
 	-webkit-animation-timing-function: linear;
 }
 @keyframes border-grow
 {
 0%   {	border-width: 3px;}
-100%  {	border-width: 10px;}
+100%  {	border-width: 6px;}
 }
 
 @-moz-keyframes border-grow /* Firefox */
 {
 0%   {	border-width: 3px;}
-100%  {	border-width: 10px;}
+100%  {	border-width: 6px;}
 }
 
 @-webkit-keyframes border-grow /* Safari and Chrome */
 {
 0%   {	border-width: 3px;}
-100%  {	border-width: 10px;}
+100%  {	border-width: 6px;}
 }
-#comic-nav .title{
+#comic-nav .title, #comic-nav .body{
 	position: relative;
-	top: 0px;
+	background-color: #000000;
+	top: -100px;
 	left: 0px;
 	width: 200px;
-	height: 100px;
-	padding-left: 100px;
-	display: none;
-	-webkit-box-shadow: rgb(85, 85, 85) 3px 5px 5px;
-	box-shadow: rgb(85, 85, 85) 3px 5px 5px;
-	-webkit-transition: display 1s ease-in-out;
-	-moz-transition: display 1s ease-in-out;
-	-o-transition: display 1s ease-in-out;
-	-ms-transition: display 1s ease-in-out;	
-	transition: display 1s ease-in-out;
-}
-
-#comic-nav .selected .display{
+	height: 0px;
+	padding-left: 196px;
 	display: block;
+	opacity: 0;
+	-webkit-transition: opacity 0.5s linear;
+	-moz-transition: opacity 0.5s linear;
+	-o-transition: opacity 0.5s linear;
+	-ms-transition: opacity 0.5s linear;
+	transition: opacity 0.5s linear;
+}
+#comic-nav .body{
+	top: -80px;
+	text-shadow: 0 1px 0px #378ab4;
+	color: black;
+}
+#comic-nav .selected .title, #comic-nav .selected .body{
+	opacity: 1;
 }

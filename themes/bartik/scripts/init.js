@@ -1,7 +1,8 @@
 var initCounter = 0;
 var initSuccess = 0;
 function magazineInit(){
-	buildMag('1');
+	//buildMag('1');
+	isBookmark();
 	buildNav(0, 0);
 	initNav();
 	$('#comic-nav').jSlickmenu();
@@ -29,7 +30,7 @@ function initNavElement(elem){
 }
 
 function initNav(){
-	if(initCounter < 50 && initSuccess < 2){
+	if(initCounter < 50 && initSuccess < 1){
 		initCounter++;
 		setTimeout('initNav()', 50);
 		return;
@@ -58,7 +59,8 @@ function buildNav(offset, click){
 				$(this).find('img').bind({
 					"click":function(){
 						var nid = $(this).parent().parent().find('.nid').text();
-						buildMag(nid, true);
+						var title = $(this).parent().parent().find('.title').text();
+						buildMag(nid, true, title, 0);
 					},
 					"mouseenter":function(){
 						$(this).parent().parent().parent().addClass('fade');
@@ -83,11 +85,59 @@ function buildNav(offset, click){
 	})
 }
 
-function buildMag(id, click){
+function isBookmark(){
+	if(window.location.href){
+		var locationArray = window.location.href.split('#');
+		var page;
+		var magId;
+		var title;
+		if(!locationArray[1]){
+			return;
+		}
+		var magArray = locationArray[1].split('/');
+		if(!magArray[1] || !magArray[0]){
+			return;
+		} else {
+			magId = magArray[1];
+			title = magArray[0];
+		}
+		if(!magArray[2]){
+			page = 1;
+		} else {
+			page = magArray[2]
+		}
+		buildMag(magId, false, title, page);
+	}
+}
+
+function updateURL(newPage, newMag, newId){
+	if(window.location.href){
+		var locationArray = window.location.href.split('#');
+		if(!locationArray[1]){
+			locationArray = [window.location.href, "/"];
+		}
+		var magArray = locationArray[1].split('/');
+		if(!newPage){
+			var page = magArray[2];
+		} else{
+			var page = newPage;
+		}
+		if(!newMag){
+			var magId = magArray[1];
+			var mag = magArray[0];
+		} else {
+			var magId = newId;
+			var mag = newMag;
+		}
+		window.location.href = locationArray[0] + '#' + mag + '/' + magId + '/' + page;
+	}
+}
+
+function buildMag(id, click, title, page){
 	$('.b-selector-page').remove();
 	$('.b-load>div').remove();
+	updateURL(page, title, id);
 	$.getJSON('?q=comic-contents/' + id, function(data) {
-		initSuccess++;
 		var items = [];
 		var pageDiv;
 		var pageId;
@@ -115,8 +165,13 @@ function buildMag(id, click){
 			closed: true,
 	        covers: false,
 			autoCenter: true,
-			speed:1000
+			speed:1000,
+			after: function(opts){
+				updateURL(opts.curr);
+			}
 		});
+		$("#magazine").booklet(parseInt(page));
+
 		if(click){
 			initNavElement($('#custom-menu>.b-selector-page>span'));
 		}
