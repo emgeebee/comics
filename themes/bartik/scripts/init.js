@@ -117,12 +117,12 @@ function updateURL(newPage, newMag, newId){
 			locationArray = [window.location.href, "/"];
 		}
 		var magArray = locationArray[1].split('/');
-		if(!newPage){
+		if(newPage == undefined){
 			var page = magArray[2];
 		} else{
 			var page = newPage;
 		}
-		if(!newMag){
+		if(newId == undefined){
 			var magId = magArray[1];
 			var mag = magArray[0];
 		} else {
