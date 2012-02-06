@@ -10,6 +10,8 @@ function bartik_preprocess_html(&$variables) {
 	} else if($variables['theme_hook_suggestions'][0] == "html__comic_contents"){
 		array_push($variables['theme_hook_suggestions'], "page__comics");
 		array_push($variables['theme_hook_suggestions'], "node__comic_contents");
+	} else if($variables['theme_hook_suggestions'][0] == "html__node" && $variables['theme_hook_suggestions'][1] != "html__front" ){
+		array_push($variables['theme_hook_suggestions'], "html__site_page");
 	}
   if (!empty($variables['page']['featured'])) {
     $variables['classes_array'][] = 'featured';
@@ -52,6 +54,12 @@ function bartik_process_html(&$variables) {
   if (module_exists('color')) {
     _color_html_alter($variables);
   }
+}
+
+function bartik_preprocess_page(&$variables) {
+	if(isset($variables['node'])){
+		array_push($variables['theme_hook_suggestions'], "page__".$variables['node']->type);
+	}
 }
 
 /**
@@ -126,6 +134,9 @@ function bartik_preprocess_node(&$variables) {
   if ($variables['view_mode'] == 'full' && node_is_page($variables['node'])) {
     $variables['classes_array'][] = 'node-full';
   }
+	if(isset($variables['node'])){
+		array_push($variables['theme_hook_suggestions'], "node__".$variables['node']->type);
+	}
 }
 
 /**

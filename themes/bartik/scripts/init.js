@@ -92,6 +92,7 @@ function isBookmark(){
 		var magId;
 		var title;
 		if(!locationArray[1]){
+			initBiog();
 			return;
 		}
 		var magArray = locationArray[1].split('/');
@@ -114,7 +115,7 @@ function updateURL(newPage, newMag, newId){
 	if(window.location.href){
 		var locationArray = window.location.href.split('#');
 		if(!locationArray[1]){
-			locationArray = [window.location.href, "/"];
+			locationArray[1] = "/";
 		}
 		var magArray = locationArray[1].split('/');
 		if(newPage == undefined){
@@ -176,6 +177,15 @@ function buildMag(id, click, title, page){
 			initNavElement($('#custom-menu>.b-selector-page>span'));
 		}
 	});
+}
+
+function initBiog(){
+	$.ajax({
+		url:'?q=biog',
+		success: function(data) {
+			$('.b-load').html(data);
+		}
+	})
 }
 
 $(document).ready(magazineInit);
