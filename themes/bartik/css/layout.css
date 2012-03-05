@@ -20,7 +20,7 @@ html{
 #triptych,
 #footer-columns,
 #footer {
-  width: 1104px;
+  width: 1050px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -156,7 +156,7 @@ html{
 .b-selector a:link,
 .b-selector a:link:visited,
 .b-selector a:link:active {
-	color: white!important;
+	color: white;
 	padding: 0;
 }
 #custom-menu span.b-current:hover {
@@ -215,6 +215,11 @@ html{
 0%   {	border-width: 3px;}
 100%  {	border-width: 6px;}
 }
+#comic-nav span div{
+	opacity: 1;
+	background-color: #000000;
+	text-shadow: none;
+}
 #comic-nav .title, #comic-nav .body{
 	position: relative;
 	background-color: #000000;
@@ -231,6 +236,12 @@ html{
 	-ms-transition: opacity 0.5s linear;
 	transition: opacity 0.5s linear;
 }
+#comic-nav .title div, #comic-nav .body div{
+	margin:0;
+	padding: 5px;
+	border-radius: 4px;
+	color: #FFFFFF;
+}
 #comic-nav .body{
 	top: -80px;
 	text-shadow: 0 1px 0px #378ab4;
@@ -238,4 +249,7 @@ html{
 }
 #comic-nav .selected .title, #comic-nav .selected .body{
 	opacity: 1;
+}
+#magazine{
+	float: right;
 }

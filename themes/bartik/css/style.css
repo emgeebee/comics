@@ -265,7 +265,7 @@ ul.tips {
 #header, #footer-wrapper{
 	background-color:Goldenrod;
 	margin: 10px auto 5px;
-	width: 1104px;
+	width: 1045px;
 	border-radius: 10px;
 }
 #footer-wrapper{
@@ -329,6 +329,7 @@ h1#site-name {
   position: absolute;
   margin: 0;
   width: 1104px;
+  margin-top: 20px;
   text-shadow:
     0 1px 0px #378ab4,
     1px 0 0px #5dabcd,
@@ -610,7 +611,7 @@ h1#site-name {
 /* ----------------- Content ------------------ */
 
 .content {
-  margin-top: 10px;
+  margin: 10px;
 }
 h1#page-title {
   font-size: 2em;

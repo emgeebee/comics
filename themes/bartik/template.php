@@ -34,8 +34,10 @@ function bartik_preprocess_html(&$variables) {
   drupal_add_css(path_to_theme() . '/css/ie.css', array('group' => CSS_THEME, 'browsers' => array('IE' => 'lte IE 7', '!IE' => FALSE), 'preprocess' => FALSE));
   drupal_add_css(path_to_theme() . '/css/ie6.css', array('group' => CSS_THEME, 'browsers' => array('IE' => 'IE 6', '!IE' => FALSE), 'preprocess' => FALSE));
 
-  drupal_add_js('http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js');
-  drupal_add_js('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js');
+//  drupal_add_js('http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js');
+//  drupal_add_js('https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js');
+  drupal_add_js(path_to_theme() . '/scripts/jquery-1.5.min.js');
+  drupal_add_js(path_to_theme() . '/scripts/jquery-ui-1.8.9.custom.min.js');
   drupal_add_js(path_to_theme() . '/scripts/jquery.easing.1.3.js');
   drupal_add_js(path_to_theme() . '/scripts/jquery.booklet.1.2.0.js');
   drupal_add_js(path_to_theme() . '/scripts/init.js');

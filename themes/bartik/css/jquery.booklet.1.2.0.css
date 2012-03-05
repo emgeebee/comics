@@ -1,6 +1,6 @@
 /* @Booklet
 ----------------------------------------*/
-	.booklet           {width:800px; height:600px; position:relative; /*background:#fff;*/ margin:0 auto 10px; overflow:visible !important;}
+	.booklet           {width:800px; height:600px; position:relative; /*background:#fff;*/ margin:0 5px 10px; overflow:visible !important;}
 	.booklet .b-page  {left:0; top:0; position:absolute; overflow:hidden; padding:0;}
 	
 	.booklet .b-pN  {}
@@ -70,6 +70,7 @@
     .b-menu           {z-index:100;}
 	.b-current		  {z-index:101;}
     .b-selector       {z-index:100;}
+    .b-selector-page  {z-index:1;}
 	.booklet          {z-index:10; margin-top: 20px;}
     .b-pN             {z-index:10;}
     .b-p0             {z-index:10;}
@@ -83,9 +84,9 @@
 	
 /* @Menu Items
 ----------------------------------------*/
-	.b-menu {height:65px; margin:0 0 10px; background-color: Goldenrod; border-radius: 10px; padding-top: 20px}
+	.b-menu {height:80px; margin:20px 0 10px; background-color: Goldenrod; border-radius: 10px; padding-top: 0px}
 	
-	.b-selector             {margin: 0 10px 0 2px; height:40px; position:relative; float:right; border:none; color:#cecece; cursor:pointer;
+	.b-selector             {margin: 20px 10px 0 7px; height:40px; position:relative; float:right; border:none; color:#cecece; cursor:pointer;
   text-shadow:
     0 1px 0px #378ab4,
     1px 0 0px #5dabcd,
@@ -93,12 +94,16 @@
     2px 1px 1px #5dabcd;}
 	.b-selector .b-current  {padding:8px 15px 12px; line-height:20px; margin-top:1px; width:170px; height:17px; display:block; background:#000; text-align:center;
 	border-radius: 10px;}
-	.b-selector-page        {width:auto; }
+	.b-selector-page        {width:auto; float: left; margin-right: 0; }
 	.b-selector-chapter     {width:auto;}
 	
+	.b-selector-page .b-current,
+	.b-selector.b-selector-page ul {background-color: #FFFFFF; color: #000000; text-shadow: none;}
+	.b-selector.b-selector-page ul a:link {background-color: #FFFFFF; color: #000000; text-shadow: none;}
+
 	.b-selector:hover            {color:#fff; background-position:left 0px;}
 	.b-selector:hover .b-current {background-position:right 0px;}
-	.b-selector ul               {margin:0; list-style:none !important; position:absolute; top:32px; right:0; padding:10px 5px 5px; background:#000; width:190px; font:normal 12px "Myriad Pro", Myriad, "DejaVu Sans Condensed","Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif; height: 655px;}
+	.b-selector ul               {margin:0; list-style:none !important; position:absolute; top:32px; right:0; padding:10px 5px 5px; background:#000000; width:190px; font:normal 12px "Myriad Pro", Myriad, "DejaVu Sans Condensed","Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif; height: 568px;}
 	.b-selector li               {border:none;}
 	.b-selector a                {color:#cecece; height:14px; text-decoration:none; display:block; padding:5px 10px;}
 	.b-selector a .b-text        {float:left; clear:none;}
