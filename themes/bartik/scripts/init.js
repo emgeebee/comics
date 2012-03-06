@@ -135,11 +135,9 @@ function updateURL(newPage, newMag, newId){
 }
 
 function buildMag(id, click, title, page){
+	$('#magazine').removeClass('floatleft');
 	$('.b-selector-page').remove();
 	$('.b-load>div').remove();
-console.log(page);
-console.log(title);
-console.log(id);
 	updateURL(page, title, id);
 	$.getJSON('?q=comic-contents/' + id, function(data) {
 		var items = [];
@@ -188,6 +186,7 @@ function initBiog(){
 		url:'?q=biog',
 		success: function(data) {
 			$('.b-load').html(data);
+			$('#magazine').addClass('floatleft');
 		}
 	})
 }

@@ -253,3 +253,6 @@ html{
 #magazine{
 	float: right;
 }
+#magazine.floatleft{
+	float: left;
+}
